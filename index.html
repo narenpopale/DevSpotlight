@@ -1,13 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevSpotlight</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <main>
+        <div class="head">
+            <h1>DevSpotlight</h1>
+        </div>
+        <div class="search-bar">
+            <span class="material-symbols-outlined">
+                search
+            </span>
+            <input type="text" name="username" id="username">
+            <button>Search</button>
+        </div>
+        <div class="nav-bar">
+            <div id="profile">Profile</div>
+            <div id="repos">Repos</div>
+            <div id="followers">Followers</div>
+            <div id="following">Following</div>
+        </div>
+        <div class="container">
+            <div class="profile-img">
+                <img src="" alt="img">
+            </div>
+            <div class="profile-info">
+                <div class="first">
+                    <h2 id="name">Naren Popale</h2>
+                    <h4 id="username">Username</h4>
+                    <p id="bio">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, quas!</p>
+                </div>
+                <div class="second">
+                    <div class="repo-cnt">
+                        <p>Repos</p>
+                        <h2>20</h2>
+                    </div>
+                    <div class="followers-cnt">
+                        <p>Followers</p>
+                        <h2>9</h2>
+                    </div>
+                    <div class="following-cnt">
+                        <p>Following</p>
+                        <h2>15</h2>
+                    </div>
+                </div>
+                <div class="third">
+                    <div class="location">
+                        <span class="material-symbols-outlined">
+                            location_on
+                        </span>
+                        <p id="location">Delhi</p>
+                    </div>
+                    <div class="twitter">
+                        <span class="material-symbols-outlined">
+                            tag
+                        </span>
+                        <p id="twitter">Username</p>
+                    </div>
+                    <div class="email">
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+                        <p id="email">Username@mail.com</p>
+                    </div>
+                    <div class="company">
+                        <span class="material-symbols-outlined">
+                            corporate_fare
+                        </span>
+                        <p id="org">Google</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
     <script src="app.js"></script>
 </body>
+
 </html>
