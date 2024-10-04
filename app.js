@@ -15,7 +15,11 @@ let profile = document.querySelector(".container");
 let navbarDivs = document.querySelectorAll(".nav-bar div");
 let notFound = document.querySelector("#user-found");
 let repoSection = document.querySelector("#repos");
+let followersSection = document.querySelector("#followers");
 let repoContainer = document.querySelector(".repo-container");
+let followersContainer = document.querySelector(".followers-container");
+let followingContainer = document.querySelector(".following-container");
+let profileTab = document.querySelector("#profile");
 
 
 let userData;
@@ -37,7 +41,7 @@ const userNotFound = () => {
 
 
 const userFound = () => {
-    profile.removeAttribute("id");
+    showProfile();
     navbarDivs.forEach((e) => {
         e.removeAttribute("id");
     })
@@ -46,8 +50,43 @@ const userFound = () => {
 }
 
 
+const showProfile = () => {
+    profile.removeAttribute("id");
+}
+
+
 const hideProfile = () => {
     profile.setAttribute("id", "initial-container");
+}
+
+
+const showRepos = () => {
+    repoContainer.removeAttribute("id");
+}
+
+
+const hideRepos = () => {
+    repoContainer.setAttribute("id", "repo-sec");
+}
+
+
+const showFollowers = () => {
+    followersContainer.removeAttribute("id");
+}
+
+
+const hideFollowers = () => {
+    followersContainer.setAttribute("id", "followers-sec");
+}
+
+
+const showFollowing = () => {
+    followingContainer.removeAttribute("id");
+}
+
+
+const hideFollowing = () => {
+    followingContainer.setAttribute("id", "following-sec");
 }
 
 
@@ -106,6 +145,16 @@ const showInfo = async (username) => {
 
 button.addEventListener("click", () => {
     showInfo(username.value);
+    hideRepos();
+    hideFollowers();
+    hideFollowing();
+})
+
+profileTab.addEventListener("click", () => {
+    showProfile();
+    hideRepos();
+    hideFollowers();
+    hideFollowing();
 })
 
 
@@ -141,11 +190,60 @@ const populateRepos = (repoList) => {
 const displayRepos = async () => {
     let repoLink = await userData["repos_url"];
     let repoList = await getRepos(repoLink);
-    hideProfile();
     populateRepos(repoList);
 }
 
 
 repoSection.addEventListener("click", () => {
     displayRepos();
+    showRepos();
+    hideProfile();
+    hideFollowers();
+    hideFollowing();
+})
+
+
+
+// Followers Logic -------------------------------->
+
+const getFollowers = async (url) => {
+    let promise = await fetch(url);
+    let followersList = await promise.json();
+    return followersList;
+}
+
+
+const populateFollowers = (followersList) => {
+    let string = "";
+
+    followersList.forEach((e) => {
+        let username = e["login"];
+        let src = e["avatar_url"];
+
+        string += `
+            <div class="box">
+                <img src="${src}" alt="img">
+                <h2 id="name">${username}</h2>
+            </div>
+        `;
+        
+    })
+
+    followersContainer.innerHTML = string;
+}
+
+
+const displayFollowers = async () => {
+    let link = await userData["followers_url"];
+    let followersList = await getFollowers(link);
+    populateFollowers(followersList);
+}
+
+
+followersSection.addEventListener("click", () => {
+    displayFollowers();
+    showFollowers();
+    hideRepos();
+    hideProfile();
+    hideFollowing();
 })

@@ -168,6 +168,8 @@ main {
     margin-left: 2vh;
 }
 
+/* Repos Container */
+
 .repo-container {
     margin-bottom: 10vh;
     font-size: 1.25vw;
@@ -189,4 +191,33 @@ main {
 
 .repo-container .box p {
     margin-top: 1vh;
+}
+
+/* Followers Container */
+
+.followers-container {
+    margin-bottom: 10vh;
+    font-size: 1.25vw;
+    background-color: #129490;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.followers-container * {
+    background-color: #129490;
+}
+
+.followers-container .box {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3vh 5vh;
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+.followers-container .box img {
+    width: 5vw;
+    border-radius: 50%;
 }

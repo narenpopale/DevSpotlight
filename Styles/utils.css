@@ -13,3 +13,15 @@
     margin-top: 5vh;
     font-size: 2vw;
 }
+
+#repo-sec {
+    display: none;
+}
+
+#followers-sec {
+    display: none;
+}
+
+#following-sec {
+    display: none;
+}
