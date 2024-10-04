@@ -1,0 +1,8 @@
+#initial-navbar {
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+#initial-container {
+    display: none;
+}
