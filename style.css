@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #065143;
+    color: white;
+}
+
+main {
+    width: 50vw;
+    margin: auto;
+}
+
+.head {
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+    font-size: 1.25vw;
+}
+
+.search-bar {
+    position: relative;
+    height: 8vh;
+    margin-top: 5vh;
+}
+
+.search-bar * {
+    background-color: #129490;
+}
+
+.search-bar input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 4vw;
+    font-size: 1.25vw;
+    color: white;
+    border-radius: 10px;
+}
+
+.search-bar input::placeholder {
+    color: white;
+}
+
+.search-bar span {
+    top: 2vh;
+    left: 1.25vw;
+    position: absolute;
+}
+
+.search-bar button {
+    top: 1.25vh;
+    right: 1.25vw;
+    position: absolute;
+    padding: 1.5vh 2vh;
+    border: none;
+    border-radius: 5px;
+    font-size: 1vw;
+    font-weight: bold;
+    background-color: #065143;
+}
+
+.search-bar button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.nav-bar {
+    padding: 0 1.5vw;
+    display: flex;
+    height: 8vh;
+    align-items: center;
+    gap: 1.5vw;
+    font-size: 1.25vw;
+}
+
+.nav-bar div:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.container {
+    margin-bottom: 10vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    font-size: 1.25vw;
+    background-color: #129490;
+    border-radius: 10px;
+}
+
+.container * {
+    background-color: #129490;
+}
+
+.container .profile-img {
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.container img {
+    height: 10vw;
+    border-radius: 50%;
+}
+
+.container .profile-info {
+    box-sizing: border-box;
+    padding: 5vh 0;
+    padding-right: 5vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.container .first {
+    margin-bottom: 5vh;
+}
+
+.container .first h4 {
+    margin-top: 1vh
+}
+
+.container .first p {
+    margin-top: 2vh
+}
+
+.container .second {
+    margin-bottom: 5vh;
+    height: 15vh;
+    box-sizing: border-box;
+    padding: 0 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #065143;
+    border-radius: 10px;
+}
+
+.container .second * {
+    background-color: #065143;
+}
+
+.container .second div {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.container .third {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.container .third div {
+    display: flex;
+    align-items: center;
+}
+
+.container .third div p {
+    margin-left: 2vh;
+}
