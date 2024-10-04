@@ -79,6 +79,10 @@ main {
     opacity: 0.8;
 }
 
+#user-found {
+    display: none;
+}
+
 .container {
     margin-bottom: 10vh;
     display: grid;
@@ -162,4 +166,27 @@ main {
 
 .container .third div p {
     margin-left: 2vh;
+}
+
+.repo-container {
+    margin-bottom: 10vh;
+    font-size: 1.25vw;
+    background-color: #129490;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.repo-container * {
+    background-color: #129490;
+}
+
+.repo-container .box {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 3vh 5vh;
+    border-bottom: 2px solid black;
+}
+
+.repo-container .box p {
+    margin-top: 1vh;
 }

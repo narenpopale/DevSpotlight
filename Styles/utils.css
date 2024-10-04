@@ -6,3 +6,10 @@
 #initial-container {
     display: none;
 }
+
+#not-found {
+    display: block;
+    text-align: center;
+    margin-top: 5vh;
+    font-size: 2vw;
+}
