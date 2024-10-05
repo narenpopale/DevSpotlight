@@ -161,6 +161,10 @@ button.addEventListener("click", () => {
     showInfo(username.value);
 })
 
+username.addEventListener("keydown", (e) => {
+    if(e.key == "Enter") showInfo(username.value);
+})
+
 profileTab.addEventListener("click", () => {
     if(isDataAvailable) switchTab("profile");
 })
@@ -175,7 +179,6 @@ const populateRepos = (repoList) => {
     repoList.forEach((e) => {
         let name = e["name"];
         let description = checkNull(e["description"], "Description");
-        // console.log(name, " ", description);
         string += `
             <div class="box">
                 <h2 id="name">${name}</h2>
