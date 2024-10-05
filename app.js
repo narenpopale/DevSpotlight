@@ -42,6 +42,14 @@ const checkNull = (data, msg) => {
 }
 
 
+const switchTab = (tabName) => {
+    tabName === "profile" ? showProfile() : hideProfile();
+    tabName === "repos" ? showRepos() : hideRepos();
+    tabName === "followers" ? showFollowers() : hideFollowers();
+    tabName === "following" ? showFollowing() : hideFollowing();
+}
+
+
 const userNotFound = () => {
     notFound.setAttribute("id", "not-found");
     hideProfile();
@@ -49,7 +57,6 @@ const userNotFound = () => {
 
 
 const userFound = () => {
-    showProfile();
     navbarDivs.forEach((e) => {
         e.removeAttribute("id");
     })
@@ -146,16 +153,11 @@ const showInfo = async (username) => {
 
 button.addEventListener("click", () => {
     showInfo(username.value);
-    hideRepos();
-    hideFollowers();
-    hideFollowing();
+    switchTab("profile");
 })
 
 profileTab.addEventListener("click", () => {
-    showProfile();
-    hideRepos();
-    hideFollowers();
-    hideFollowing();
+    switchTab("profile");
 })
 
 
@@ -190,10 +192,7 @@ const displayRepos = async () => {
 
 repoSection.addEventListener("click", () => {
     displayRepos();
-    showRepos();
-    hideProfile();
-    hideFollowers();
-    hideFollowing();
+    switchTab("repos");
 })
 
 
@@ -229,10 +228,7 @@ const displayFollowers = async () => {
 
 followersSection.addEventListener("click", () => {
     displayFollowers();
-    showFollowers();
-    hideRepos();
-    hideProfile();
-    hideFollowing();
+    switchTab("followers");
 })
 
 
@@ -269,8 +265,5 @@ const displayFollowing = async () => {
 
 followingSection.addEventListener("click", () => {
     displayFollowing();
-    showFollowing();
-    hideFollowers();
-    hideRepos();
-    hideProfile();
+    switchTab("following");
 })
