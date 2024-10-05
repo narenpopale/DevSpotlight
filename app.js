@@ -16,6 +16,7 @@ let navbarDivs = document.querySelectorAll(".nav-bar div");
 let notFound = document.querySelector("#user-found");
 let repoSection = document.querySelector("#repos");
 let followersSection = document.querySelector("#followers");
+let followingSection = document.querySelector("#following");
 let repoContainer = document.querySelector(".repo-container");
 let followersContainer = document.querySelector(".followers-container");
 let followingContainer = document.querySelector(".following-container");
@@ -246,4 +247,51 @@ followersSection.addEventListener("click", () => {
     hideRepos();
     hideProfile();
     hideFollowing();
+})
+
+
+
+// Following Logic -------------------------------->
+
+const getFollowing = async (url) => {
+    let promise = await fetch(url);
+    let followingList = await promise.json();
+    return followingList;
+}
+
+
+const populateFollowing = (followingList) => {
+    let string = "";
+
+    followingList.forEach((e) => {
+        let username = e["login"];
+        let src = e["avatar_url"];
+
+        string += `
+            <div class="box">
+                <img src="${src}" alt="img">
+                <h2 id="name">${username}</h2>
+            </div>
+        `;
+        
+    })
+
+    followingContainer.innerHTML = string;
+}
+
+
+const displayFollowing = async () => {
+    let link = `https://api.github.com/users/${userData["login"]}/following`;
+    console.log(link);
+    let followingList = await getFollowing(link);
+    populateFollowing(followingList);
+}
+
+
+followingSection.addEventListener("click", () => {
+    displayFollowing();
+    showFollowing();
+    hideFollowers();
+    hideRepos();
+    hideProfile();
 })
