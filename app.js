@@ -29,6 +29,13 @@ let userData;
 
 // Utility Functions -------------------------------->
 
+const getData = async (url) => {
+    let promise = await fetch(url);
+    let data = await promise.json();
+    return data;
+}
+
+
 const checkNull = (data, msg) => {
     if(data == null) return `${msg} Not Available`;
     else return data;
@@ -107,14 +114,6 @@ window.addEventListener("load", () => {
 
 // Profile Logic -------------------------------->
 
-const getData = async (username) => {
-    let userPromise = await fetch(`https://api.github.com/users/${username}`);
-    let userData = await userPromise.json();
-    console.log(userData["login"]);
-    return userData;
-}
-
-
 const populateInfo = (userData) => {
     img.src = userData["avatar_url"];
     Name.innerText = checkNull(userData["name"], "Name");
@@ -131,7 +130,8 @@ const populateInfo = (userData) => {
 
 
 const showInfo = async (username) => {
-    userData = await getData(username);
+    let url = `https://api.github.com/users/${username}`;
+    userData = await getData(url);
     
     if(userData["status"] == undefined) {
         populateInfo(userData);
@@ -162,13 +162,6 @@ profileTab.addEventListener("click", () => {
 
 // Repos Logic -------------------------------->
 
-const getRepos = async (url) => {
-    let promise = await fetch(url);
-    let repoList = await promise.json();
-    return repoList;
-}
-
-
 const populateRepos = (repoList) => {
     let string = "";
 
@@ -189,8 +182,8 @@ const populateRepos = (repoList) => {
 
 
 const displayRepos = async () => {
-    let repoLink = await userData["repos_url"];
-    let repoList = await getRepos(repoLink);
+    let url = await userData["repos_url"];
+    let repoList = await getData(url);
     populateRepos(repoList);
 }
 
@@ -206,13 +199,6 @@ repoSection.addEventListener("click", () => {
 
 
 // Followers Logic -------------------------------->
-
-const getFollowers = async (url) => {
-    let promise = await fetch(url);
-    let followersList = await promise.json();
-    return followersList;
-}
-
 
 const populateFollowers = (followersList) => {
     let string = "";
@@ -235,8 +221,8 @@ const populateFollowers = (followersList) => {
 
 
 const displayFollowers = async () => {
-    let link = await userData["followers_url"];
-    let followersList = await getFollowers(link);
+    let url = await userData["followers_url"];
+    let followersList = await getData(url);
     populateFollowers(followersList);
 }
 
@@ -252,13 +238,6 @@ followersSection.addEventListener("click", () => {
 
 
 // Following Logic -------------------------------->
-
-const getFollowing = async (url) => {
-    let promise = await fetch(url);
-    let followingList = await promise.json();
-    return followingList;
-}
-
 
 const populateFollowing = (followingList) => {
     let string = "";
@@ -281,9 +260,9 @@ const populateFollowing = (followingList) => {
 
 
 const displayFollowing = async () => {
-    let link = `https://api.github.com/users/${userData["login"]}/following`;
-    console.log(link);
-    let followingList = await getFollowing(link);
+    let username = await userData["login"];
+    let url = `https://api.github.com/users/${username}/following`;
+    let followingList = await getData(url);
     populateFollowing(followingList);
 }
 
