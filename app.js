@@ -24,6 +24,7 @@ let profileTab = document.querySelector("#profile");
 
 
 let userData;
+let isDataAvailable;
 
 
 
@@ -51,8 +52,10 @@ const switchTab = (tabName) => {
 
 
 const userNotFound = () => {
+    navbarDivs.forEach((e) => {
+        e.setAttribute("id", "initial-navbar");
+    })
     notFound.setAttribute("id", "not-found");
-    hideProfile();
 }
 
 
@@ -106,7 +109,7 @@ const hideFollowing = () => {
 
 
 const initialSetup = () => {
-    hideProfile();
+    switchTab("");
     navbarDivs.forEach((e) => {
         e.setAttribute("id", "initial-navbar");
     })
@@ -143,21 +146,23 @@ const showInfo = async (username) => {
     if(userData["status"] == undefined) {
         populateInfo(userData);
         userFound();
-        console.log("Found");
+        switchTab("profile");
+        isDataAvailable = true;
     }
     else {
         userNotFound();
+        switchTab("");
+        isDataAvailable = false;
     }
 }
 
 
 button.addEventListener("click", () => {
     showInfo(username.value);
-    switchTab("profile");
 })
 
 profileTab.addEventListener("click", () => {
-    switchTab("profile");
+    if(isDataAvailable) switchTab("profile");
 })
 
 
@@ -191,8 +196,10 @@ const displayRepos = async () => {
 
 
 repoSection.addEventListener("click", () => {
-    displayRepos();
-    switchTab("repos");
+    if(isDataAvailable) {
+        displayRepos();
+        switchTab("repos");
+    }
 })
 
 
@@ -227,8 +234,10 @@ const displayFollowers = async () => {
 
 
 followersSection.addEventListener("click", () => {
-    displayFollowers();
-    switchTab("followers");
+    if(isDataAvailable) {
+        displayFollowers();
+        switchTab("followers");
+    }
 })
 
 
@@ -264,6 +273,8 @@ const displayFollowing = async () => {
 
 
 followingSection.addEventListener("click", () => {
-    displayFollowing();
-    switchTab("following");
+    if(isDataAvailable) {
+        displayFollowing();
+        switchTab("following");
+    }
 })
