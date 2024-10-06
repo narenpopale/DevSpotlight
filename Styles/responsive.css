@@ -1,0 +1,130 @@
+@media (max-width: 600px) {
+
+    main {
+        width: 70vw;
+    }
+
+    .head {
+        font-size: 3vw;
+        text-align: center;
+        margin-top: 7vh;
+        margin-bottom: 0;
+    }
+
+    .search-bar {
+        margin-top: 3vh;
+        height: 5vh;
+    }
+
+    .search-bar input {
+        font-size: 2.5vw;
+        padding: 0 8vw;
+    }
+
+    .search-bar span {
+        top: 1.2vh;
+        left: 2vw;
+    }
+
+    .search-bar button {
+        top: 0.8vh;
+        right: 3vw;
+        padding: 1vh 1.5vh;
+        font-size: 2vw;
+    }
+
+    .nav-bar {
+        font-size: 2.5vw;
+        height: 5vh;
+        padding: 0 2vw;
+    }
+
+    #not-found {
+        font-size: 3vw;
+    }
+
+    .container {
+        font-size: 2.5vw;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr;
+    }
+
+    .container .profile-img {
+        margin-top: 0;
+        align-items: center;
+    }
+
+    .container img {
+        height: 18vw;
+    }
+
+    .container .profile-info {
+        padding: 3vh;
+        padding-top: 0;
+    }
+
+    .profile-info .first {
+        margin-bottom: 2vh;
+    }
+
+    .profile-info h2, h4, p {
+        text-align: center;
+    }
+
+    .container .first h4 {
+        margin-top: 0.5vh;
+    }
+
+    .container .first p {
+        margin-top: 1.5vh;
+    }
+
+    .container .second {
+        height: 8vh;
+        margin-bottom: 2vh;
+        border-radius: 5px;
+    }
+
+    .container .third div p {
+        margin-left: 1vh;
+        text-align: left;
+    }
+
+    .repo-container {
+        font-size: 2vw;
+    }
+
+    .repo-container .box {
+        padding: 3vh 2vh;
+    }
+
+    .repo-container .box p {
+        text-align: left;
+    }
+
+    .followers-container {
+        font-size: 2vw;
+    }
+
+    .followers-container .box {
+        padding: 3vh 2vh;
+        gap: 3vw;
+    }
+
+    .followers-container .box img {
+        width: 8vw;
+    }
+
+    .following-container {
+        font-size: 2vw;
+    }
+
+    .following-container .box {
+        padding: 3vh 2vh;
+        gap: 3vw;
+    }
+
+    .following-container .box img {
+        width: 8vw;
+    }
+}
